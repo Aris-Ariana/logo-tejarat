@@ -14,7 +14,7 @@ docker build -t seminar-web:v1 .
 
 docker build -t seminar-web:v2 .
 
-docker run -d -p 8080:80 --name seminar-container seminar-web:v1
+docker run -d -p 8080:8080 --name seminar-container seminar-web:v1
 ```
 
 ---
