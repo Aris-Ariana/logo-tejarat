@@ -6,20 +6,6 @@ RUN chgrp -R 0 /var/cache/nginx /var/run /etc/nginx /usr/share/nginx/html && \
     chmod -R g=u /var/cache/nginx /var/run /etc/nginx /usr/share/nginx/html
 ```
 
-## Final proposed version for default SCC compatible securityContext:
-```yaml
-spec:
-  containers:
-    - name: your-container
-      securityContext:
-        allowPrivilegeEscalation: false
-        capabilities:
-          drop:
-            - ALL
-        seccompProfile:
-          type: RuntimeDefault
-```
-
 ---
 
 ## With Docker Run
@@ -91,4 +77,17 @@ oc describe pod <POD-NAME> -n seminar
 # Not recommended
 ```bash
 oc adm policy add-scc-to-user anyuid -z default -n seminar
+```
+## Final proposed version for default SCC compatible securityContext:
+```yaml
+spec:
+  containers:
+    - name: your-container
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        seccompProfile:
+          type: RuntimeDefault
 ```
