@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM registry.sarvrayaneh.com/test/nginx:stable-alpine
 
 RUN chgrp -R 0 /var/cache/nginx /var/run /etc/nginx /usr/share/nginx/html && \
     chmod -R g=u /var/cache/nginx /var/run /etc/nginx /usr/share/nginx/html
