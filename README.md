@@ -50,6 +50,23 @@ docker push registry.sarvrayaneh.com/test/seminar-web:v2
 
 ---
 
+# OpenShift
+1. Create deployment
+2. Create Service
+    ```bash
+    oc expose deployment logo-tejarat --port=8080 --target-port=8080 --name=logo-tejarat-service -n seminar
+    ```
+3. Create Route
+   ```bash
+   oc expose service logo-tejarat-service -n seminar
+   ```
+4. Get URL
+   ```bash
+   oc get route logo-tejarat-route -n seminar -o jsonpath='{.spec.host}'
+   ```
+
+---
+
 ## Make sure Always get the latest image
 ```bash
 imagePullPolicy: Always
