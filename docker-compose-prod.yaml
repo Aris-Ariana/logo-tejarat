@@ -1,0 +1,7 @@
+services:
+  web:
+    image: seminar-web:v3
+    container_name: seminar-web
+    ports:
+      - "8080:8080"
+    restart: always
